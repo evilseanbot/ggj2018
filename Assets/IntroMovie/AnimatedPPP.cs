@@ -7,7 +7,9 @@ public class AnimatedPPP : MonoBehaviour {
 
 	public PostProcessingProfile profile;
 	public UnityEngine.UI.Text text;
+	public UnityEngine.UI.Text pressText;
 	public Camera camera;
+	public bool done = false;
 
 	// Use this for initialization
 	void Start () {
@@ -25,15 +27,17 @@ public class AnimatedPPP : MonoBehaviour {
 			grain.intensity = (i / 300);
 			profile.grain.settings = grain;
 
-			MakeTextBlink (i);
+			MakeTitleTextBlink (i);
 			MakeCameraFadeIn (i);
+			MakePressTextAppear (i);
 
 			//Debug.Log (i);
 			yield return null;
 		}
+		done = true;
 	}
 
-	void MakeTextBlink(float i) {
+	void MakeTitleTextBlink(float i) {
 		if (i > 150) {
 			if (i / 25 % 2 < 1) {
 				text.enabled = false;
@@ -48,4 +52,44 @@ public class AnimatedPPP : MonoBehaviour {
 			camera.backgroundColor = new Color(i / 100, i / 100, i / 100);
 		}
 	}
+
+	void MakePressTextAppear(float i) {
+		if (i == 299) {
+			pressText.enabled = true;
+		}
+	}
+
+	public void CallOutAnimation() {
+		StartCoroutine ("OutAnimation");
+	}
+
+	IEnumerator OutAnimation() {
+		for (float i = 300; i > 0; i--) {
+			VignetteModel.Settings vignette = profile.vignette.settings;
+			vignette.intensity = 1 - (i / 600);
+			vignette.smoothness = 1 - ((i * 0.8f) / 300);
+			profile.vignette.settings = vignette;
+
+			GrainModel.Settings grain = profile.grain.settings;
+			grain.intensity = (i / 300);
+			profile.grain.settings = grain;
+
+			MakeTitleTextDissappear (i);
+			MakeCameraFadeIn (i);
+			MakePressTextDissappear (i);
+
+			//Debug.Log (i);
+			yield return null;
+		}
+		done = true;
+	}
+
+	void MakeTitleTextDissappear(float i) {
+		text.enabled = false;
+	}
+
+	void MakePressTextDissappear(float i) {
+		pressText.enabled = false;
+	}
+
 }
