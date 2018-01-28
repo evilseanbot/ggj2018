@@ -568,21 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reciever: {fileID: 1832459779088248}
-  heartbeat:
-    on: 0
-    inverted: 0
-  shiftingTexture:
-    on: 0
-    inverted: 0
-  dimensionA:
-    on: 0
-    inverted: 0
-  dimensionB:
-    on: 0
-    inverted: 0
-  dimensionC:
-    on: 0
-    inverted: 0
+  on: 0
 --- !u!114 &114949779544860618
 MonoBehaviour:
   m_ObjectHideFlags: 1
