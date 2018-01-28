@@ -12,6 +12,7 @@ public class Scrubber : MonoBehaviour {
 	}
 
 	public GameObject reciever;
+	public UnityEngine.UI.Text instructionText;
 	private bool on;
 	private bool playerInZone;
 
@@ -78,6 +79,12 @@ public class Scrubber : MonoBehaviour {
 
 		if (Input.GetKeyDown ("e") && playerInZone) {
 			on = !on;
+		}
+
+		if (playerInZone && !on) {
+				instructionText.enabled = true;
+		} else {
+			instructionText.enabled = false;
 		}
 	}
 
