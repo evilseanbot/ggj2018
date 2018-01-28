@@ -47,17 +47,17 @@ public class Scrubber : MonoBehaviour {
 
 				if (dimensionA.on) {
 					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionA);
-					WorldMutation.instance.dimensionA = effectiveScrubPoint;
+					WorldMutation.instance.dimension.dimensionA = effectiveScrubPoint;
 				}
 
 				if (dimensionB.on) {
 					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionB);
-					WorldMutation.instance.dimensionB = effectiveScrubPoint;
+					WorldMutation.instance.dimension.dimensionB = effectiveScrubPoint;
 				}
 
 				if (dimensionC.on) {
 					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionC);
-					WorldMutation.instance.dimensionC = effectiveScrubPoint;
+					WorldMutation.instance.dimension.dimensionC = effectiveScrubPoint;
 				}
 
 					

@@ -12,11 +12,11 @@ public class Mutant : MonoBehaviour {
 	void Start () {
 		WorldMutation.OnScrubbed += OnScrubbed;
 		if (dimensional) {
-			WorldMutation.OnDimensionalEnter += OnDimensionalEnter;
-			WorldMutation.OnDimensionalExit += OnDimensionalExit;
+			WorldDimension.OnDimensionalEnter += OnDimensionalEnter;
+			WorldDimension.OnDimensionalExit += OnDimensionalExit;
 		}
 	}
-	
+
 	void OnScrubbed() {
 		Debug.Log ("A scrub has happened");
 
