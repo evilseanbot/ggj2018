@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 344832633}
   - component: {fileID: 344832632}
   - component: {fileID: 344832631}
+  - component: {fileID: 344832630}
   - component: {fileID: 344832629}
   m_Layer: 0
   m_Name: Cube (5)
@@ -144,6 +145,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: e0f504ba22bedfb48b740b0ac051084f, type: 2}
+--- !u!114 &344832630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 344832628}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697776bda7bfcc846a8ae57961e196a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &344832631
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -221,6 +233,7 @@ GameObject:
   - component: {fileID: 424166602}
   - component: {fileID: 424166601}
   - component: {fileID: 424166600}
+  - component: {fileID: 424166599}
   - component: {fileID: 424166598}
   m_Layer: 0
   m_Name: Cube (3)
@@ -241,6 +254,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: e0f504ba22bedfb48b740b0ac051084f, type: 2}
+--- !u!114 &424166599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 424166597}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697776bda7bfcc846a8ae57961e196a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &424166600
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -322,6 +346,7 @@ GameObject:
   - component: {fileID: 716378345}
   - component: {fileID: 716378344}
   - component: {fileID: 716378343}
+  - component: {fileID: 716378342}
   - component: {fileID: 716378341}
   m_Layer: 0
   m_Name: Cube (4)
@@ -342,6 +367,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: e0f504ba22bedfb48b740b0ac051084f, type: 2}
+--- !u!114 &716378342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 716378340}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697776bda7bfcc846a8ae57961e196a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &716378343
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -963,8 +999,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heartbeat: {fileID: 0}
   shiftingTexture: {fileID: 0}
-  dimension: {fileID: 0}
   shiftingMaterial: {fileID: 2100000, guid: e0f504ba22bedfb48b740b0ac051084f, type: 2}
+  dimensionA: 0
+  dimensionAActive: 0
 --- !u!4 &1829343942
 Transform:
   m_ObjectHideFlags: 0
@@ -1097,21 +1134,6 @@ Prefab:
     - target: {fileID: 4087781463107644, guid: 6d32c5fa648d50140b1dea659806a829, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114430632051688922, guid: 6d32c5fa648d50140b1dea659806a829,
-        type: 2}
-      propertyPath: heartbeat.on
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114430632051688922, guid: 6d32c5fa648d50140b1dea659806a829,
-        type: 2}
-      propertyPath: shiftingTexture.on
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114430632051688922, guid: 6d32c5fa648d50140b1dea659806a829,
-        type: 2}
-      propertyPath: dimensionA.on
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d32c5fa648d50140b1dea659806a829, type: 2}

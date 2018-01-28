@@ -8,9 +8,13 @@ public class WorldHeartbeat : MonoBehaviour {
 	public float size = 0.1f;
 	public float scaleMod;
 
-	public void OnScrubbed() {}
-
-	public void Update() {
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
 		scaleMod = (1-(size/2)) + (Mathf.Sin(Time.time * bps) * size);
 	}
 }

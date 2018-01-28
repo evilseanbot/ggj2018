@@ -5,7 +5,6 @@ using UnityEngine;
 public class Mutant : MonoBehaviour {
 	public bool dimensional = false;
 	public Dimension dimension = Dimension.none;
-	public bool prop = false;
 
 	public enum Dimension {A, B, C, none};
 
@@ -13,31 +12,28 @@ public class Mutant : MonoBehaviour {
 	void Start () {
 		WorldMutation.OnScrubbed += OnScrubbed;
 		if (dimensional) {
-			WorldDimension.OnDimensionalEnter += OnDimensionalEnter;
-			WorldDimension.OnDimensionalExit += OnDimensionalExit;
+			WorldMutation.OnDimensionalEnter += OnDimensionalEnter;
+			WorldMutation.OnDimensionalExit += OnDimensionalExit;
 		}
 	}
-
+	
 	void OnScrubbed() {
-		//Debug.Log ("A scrub has happened");
-	}
+		Debug.Log ("A scrub has happened");
 
-	void Update() {
 		//Heartbeat effect
-		if (prop) {
-			transform.localScale = Vector3.one * WorldMutation.instance.heartbeat.scaleMod;
-		}
+		transform.localScale = Vector3.one * WorldMutation.instance.heartbeat.scaleMod;
 	}
 
 	void OnDimensionalEnter(Dimension dimensionEntered) {
-		//Debug.Log("On dimensional enter");
+		Debug.Log("On dimensional enter");
+		Debug.Log (dimensionEntered);
 		if (dimension == dimensionEntered) {
 			GetComponent<Renderer> ().enabled = true;
 		}
 	}
 
 	void OnDimensionalExit(Dimension dimensionExited) {
-		//Debug.Log("On dimensional exit");
+		Debug.Log("On dimensional exit");
 		if (dimension == dimensionExited) {
 			GetComponent<Renderer> ().enabled = false;
 		}
