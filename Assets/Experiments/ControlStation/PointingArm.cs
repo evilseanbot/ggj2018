@@ -16,6 +16,7 @@ public class PointingArm : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.LookAt (target.transform.position);
-		arm.transform.localScale = new Vector3 (0.5f, 0.5f, Vector3.Distance (armBase.transform.position, target.transform.position) * 20);
+		arm.transform.position = armBase.transform.position + ((target.transform.position - armBase.transform.position) / 2);
+		arm.transform.localScale = new Vector3 (0.5f, 0.5f, Vector3.Distance (armBase.transform.position, target.transform.position) * 10);
 	}
 }

@@ -15,8 +15,7 @@ public class Scrubber : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (on) {
-			float scrubPoint = Mathf.Sin (Player.instance.transform.rotation.eulerAngles.y / 30);
-			Debug.Log (scrubPoint);
+			float scrubPoint = 0.5f + (Mathf.Sin (Player.instance.transform.rotation.eulerAngles.y / 30) / 2);
 
 			WorldMutation.instance.heartbeat.bps = Mathf.Pow (10, scrubPoint);
 			WorldMutation.instance.shiftingTexture.intensity = scrubPoint;
