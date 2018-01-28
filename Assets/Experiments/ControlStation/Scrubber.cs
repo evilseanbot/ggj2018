@@ -4,8 +4,23 @@ using UnityEngine;
 
 public class Scrubber : MonoBehaviour {
 
+	[System.Serializable]
+	public class Effect
+	{
+		public bool on;
+		public bool inverted;
+	}
+
 	public GameObject reciever;
-	public bool on;
+	private bool on;
+	private float oldScrubPoint = 0;
+
+	public Effect heartbeat;
+	public Effect shiftingTexture;
+	public Effect dimensionA;
+	public Effect dimensionB;
+	public Effect dimensionC;
+
 
 	// Use this for initialization
 	void Start () {
@@ -17,15 +32,48 @@ public class Scrubber : MonoBehaviour {
 		if (on) {
 			float scrubPoint = 0.5f + (Mathf.Sin (Player.instance.transform.rotation.eulerAngles.y / 30) / 2);
 
-			WorldMutation.instance.heartbeat.bps = Mathf.Pow (10, scrubPoint);
-			WorldMutation.instance.shiftingTexture.intensity = scrubPoint;
-			WorldMutation.instance.dimensionA = scrubPoint;
+			if (scrubPoint != oldScrubPoint) {
+				float effectiveScrubPoint;
 
-			reciever.transform.position = Player.instance.transform.position + (Vector3.up * 0.8f) + (Player.instance.camera.transform.forward * 0.75f);
+				if (heartbeat.on) {
+					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, heartbeat);
+					WorldMutation.instance.heartbeat.bps = Mathf.Pow (10, effectiveScrubPoint);
+				}
+
+				if (shiftingTexture.on) {
+					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, shiftingTexture);
+					WorldMutation.instance.shiftingTexture.intensity = effectiveScrubPoint;
+				}
+
+				if (dimensionA.on) {
+					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionA);
+					WorldMutation.instance.dimensionA = effectiveScrubPoint;
+				}
+
+				if (dimensionB.on) {
+					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionB);
+					WorldMutation.instance.dimensionB = effectiveScrubPoint;
+				}
+
+				if (dimensionC.on) {
+					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionC);
+					WorldMutation.instance.dimensionC = effectiveScrubPoint;
+				}
+
+					
+				reciever.transform.position = Player.instance.transform.position + (Vector3.up * 0.8f) + (Player.instance.camera.transform.forward * 0.75f);
+
+				oldScrubPoint = scrubPoint;
+				WorldMutation.instance.CallOnScrubbed ();
+			}
 		} 
 
 		if (Input.GetKeyDown ("e")) {
 			on = !on;
 		}
+	}
+
+	float GetEffectiveScrubPoint(float scrubPoint, Effect effect) {
+		return effect.inverted ? scrubPoint : 1 - scrubPoint;
 	}
 }
