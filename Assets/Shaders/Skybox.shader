@@ -3,6 +3,7 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
+	_Color("Color", color) = (0,0,0,0)
 	}
 	SubShader
 	{
@@ -34,6 +35,7 @@
 
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
+			float4 _Color;
 			//via: Skybox-Panoramic.shader 
 			float3 RotateAroundYInDegrees(float3 vertex, float degrees)
 			{
@@ -57,7 +59,7 @@
 			fixed4 frag (v2f i) : SV_Target
 			{
 				// sample the texture
-				fixed4 col = tex2D(_MainTex, i.uv);
+				fixed4 col = tex2D(_MainTex, i.uv) * _Color;
 				// apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);
 				return col;
