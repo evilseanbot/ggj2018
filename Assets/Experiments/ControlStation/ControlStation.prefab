@@ -108,6 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4087781463107644}
   - component: {fileID: 114430632051688922}
+  - component: {fileID: 65345940615963048}
   m_Layer: 0
   m_Name: ControlStation
   m_TagString: Untagged
@@ -520,6 +521,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65345940615963048
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1733478221044924}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: -0.5, y: 0, z: 0}
 --- !u!65 &65512732381220726
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -568,7 +581,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reciever: {fileID: 1832459779088248}
-  on: 0
+  heartbeat:
+    on: 0
+    inverted: 0
+  shiftingTexture:
+    on: 0
+    inverted: 0
+  dimensionA:
+    on: 0
+    inverted: 0
+  dimensionB:
+    on: 0
+    inverted: 0
+  dimensionC:
+    on: 0
+    inverted: 0
 --- !u!114 &114949779544860618
 MonoBehaviour:
   m_ObjectHideFlags: 1
