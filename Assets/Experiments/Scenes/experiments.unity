@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 344832633}
   - component: {fileID: 344832632}
   - component: {fileID: 344832631}
-  - component: {fileID: 344832630}
   - component: {fileID: 344832629}
   m_Layer: 0
   m_Name: Cube (5)
@@ -141,21 +140,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 344832628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83f12ef17f836014dad80645a51e22b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d20a38d5c913144c8ab05db8c968446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e0f504ba22bedfb48b740b0ac051084f, type: 2}
---- !u!114 &344832630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 344832628}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 697776bda7bfcc846a8ae57961e196a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  dimensional: 0
+  dimension: 3
 --- !u!23 &344832631
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -253,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f12ef17f836014dad80645a51e22b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e0f504ba22bedfb48b740b0ac051084f, type: 2}
+  material: {fileID: 0}
 --- !u!114 &424166599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f12ef17f836014dad80645a51e22b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e0f504ba22bedfb48b740b0ac051084f, type: 2}
+  material: {fileID: 0}
 --- !u!114 &716378342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f12ef17f836014dad80645a51e22b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: e0f504ba22bedfb48b740b0ac051084f, type: 2}
+  material: {fileID: 0}
 --- !u!1 &1193877035 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -1001,7 +990,11 @@ MonoBehaviour:
   shiftingTexture: {fileID: 0}
   shiftingMaterial: {fileID: 2100000, guid: e0f504ba22bedfb48b740b0ac051084f, type: 2}
   dimensionA: 0
+  dimensionB: 0
+  dimensionC: 0
   dimensionAActive: 0
+  dimensionBActive: 0
+  dimensionCActive: 0
 --- !u!4 &1829343942
 Transform:
   m_ObjectHideFlags: 0
