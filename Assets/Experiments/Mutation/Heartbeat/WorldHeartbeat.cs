@@ -17,4 +17,6 @@ public class WorldHeartbeat : MonoBehaviour {
 	void Update () {
 		scaleMod = (1-(size/2)) + (Mathf.Sin(Time.time * bps) * size);
 	}
+
+	public void OnScrubbed() {}
 }

@@ -12,7 +12,10 @@ public class Scrubber : MonoBehaviour {
 	}
 
 	public GameObject reciever;
+	public UnityEngine.UI.Text instructionText;
 	private bool on;
+	private bool playerInZone;
+
 	private float oldScrubPoint = 0;
 
 	public Effect heartbeat;
@@ -30,6 +33,11 @@ public class Scrubber : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (on) {
+			if (!playerInZone) {
+				on = false;
+				return;
+			}
+
 			float scrubPoint = 0.5f + (Mathf.Sin (Player.instance.transform.rotation.eulerAngles.y / 30) / 2);
 
 			if (scrubPoint != oldScrubPoint) {
@@ -47,17 +55,17 @@ public class Scrubber : MonoBehaviour {
 
 				if (dimensionA.on) {
 					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionA);
-					WorldMutation.instance.dimensionA = effectiveScrubPoint;
+					WorldMutation.instance.dimension.dimensionA = effectiveScrubPoint;
 				}
 
 				if (dimensionB.on) {
 					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionB);
-					WorldMutation.instance.dimensionB = effectiveScrubPoint;
+					WorldMutation.instance.dimension.dimensionB = effectiveScrubPoint;
 				}
 
 				if (dimensionC.on) {
 					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionC);
-					WorldMutation.instance.dimensionC = effectiveScrubPoint;
+					WorldMutation.instance.dimension.dimensionC = effectiveScrubPoint;
 				}
 
 					
@@ -65,15 +73,34 @@ public class Scrubber : MonoBehaviour {
 
 				oldScrubPoint = scrubPoint;
 				WorldMutation.instance.CallOnScrubbed ();
-			}
-		} 
 
-		if (Input.GetKeyDown ("e")) {
+			}
+		}  
+
+		if (Input.GetKeyDown ("e") && playerInZone) {
 			on = !on;
+		}
+
+		if (playerInZone && !on) {
+				instructionText.enabled = true;
+		} else {
+			instructionText.enabled = false;
 		}
 	}
 
 	float GetEffectiveScrubPoint(float scrubPoint, Effect effect) {
 		return effect.inverted ? scrubPoint : 1 - scrubPoint;
+	}
+
+	void OnTriggerEnter(Collider col) {
+		if (col.GetComponent<Player> () != null) {
+			playerInZone = true;
+		}
+	}
+
+	void OnTriggerExit(Collider col) {
+		if (col.GetComponent<Player> () != null) {
+			playerInZone = false;
+		}
 	}
 }
