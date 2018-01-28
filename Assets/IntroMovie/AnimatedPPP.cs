@@ -9,6 +9,7 @@ public class AnimatedPPP : MonoBehaviour {
 	public UnityEngine.UI.Text text;
 	public UnityEngine.UI.Text pressText;
 	public Camera camera;
+	public AudioSource audio;
 	public bool done = false;
 
 	// Use this for initialization
@@ -30,6 +31,8 @@ public class AnimatedPPP : MonoBehaviour {
 			MakeTitleTextBlink (i);
 			MakeCameraFadeIn (i);
 			MakePressTextAppear (i);
+
+			audio.volume = (i / 300);
 
 			//Debug.Log (i);
 			yield return null;
@@ -77,6 +80,8 @@ public class AnimatedPPP : MonoBehaviour {
 			MakeTitleTextDissappear (i);
 			MakeCameraFadeIn (i);
 			MakePressTextDissappear (i);
+
+			audio.volume = (i / 300);
 
 			//Debug.Log (i);
 			yield return null;
