@@ -33,13 +33,37 @@ public class Mutant : MonoBehaviour {
 		//Debug.Log("On dimensional enter");
 		if (dimension == dimensionEntered) {
 			GetComponent<Renderer> ().enabled = true;
-		}
+            if (GetComponent<AudioSource>())
+            {
+                GetComponent<AudioSource>().enabled = true;
+            }
+            if (GetComponent<Collider>())
+            {
+                GetComponent<Collider>().enabled = true;
+            }
+            if (GetComponent<Light>())
+            {
+                GetComponent<Light>().enabled = true;
+            }
+        }
 	}
 
 	void OnDimensionalExit(Dimension dimensionExited) {
 		//Debug.Log("On dimensional exit");
 		if (dimension == dimensionExited) {
 			GetComponent<Renderer> ().enabled = false;
-		}
+            if (GetComponent<AudioSource>())
+            {
+                GetComponent<AudioSource>().enabled = false;
+            }
+            if (GetComponent<Collider>())
+            {
+                GetComponent<Collider>().enabled = false;
+            }
+            if (GetComponent<Light>())
+            {
+                GetComponent<Light>().enabled = false;
+            }
+        }
 	}
 }
