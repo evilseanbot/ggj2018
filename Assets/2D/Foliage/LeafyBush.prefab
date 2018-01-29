@@ -115,6 +115,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4651421190213992}
+  - component: {fileID: 114174455061539496}
   m_Layer: 0
   m_Name: LeafyBush
   m_TagString: Untagged
@@ -207,7 +208,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1725334396446154}
   m_LocalRotation: {x: -0, y: -0.69814414, z: -0, w: 0.7159573}
-  m_LocalPosition: {x: -28.861807, y: -3.2599998, z: -1.9798021}
+  m_LocalPosition: {x: -0.91978073, y: 1.1, z: 1.7062271}
   m_LocalScale: {x: 1.0204226, y: 1.0204223, z: 1.0204235}
   m_Children:
   - {fileID: 4650007865772936}
@@ -219,6 +220,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114174455061539496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1725334396446154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d20a38d5c913144c8ab05db8c968446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dimensional: 0
+  dimension: 0
+  prop: 0
 --- !u!212 &212180481194338960
 SpriteRenderer:
   m_ObjectHideFlags: 1

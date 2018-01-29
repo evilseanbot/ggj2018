@@ -20,6 +20,11 @@ public class Scrubber : MonoBehaviour {
 
 	public Effect heartbeat;
 	public Effect shiftingTexture;
+    public Effect hue;
+    public Effect bend;
+    public Effect distortion;
+    public Effect skybox;
+
 	public Effect dimensionA;
 	public Effect dimensionB;
 	public Effect dimensionC;
@@ -53,7 +58,27 @@ public class Scrubber : MonoBehaviour {
 					WorldMutation.instance.shiftingTexture.intensity = effectiveScrubPoint;
 				}
 
-				if (dimensionA.on) {
+                if (hue.on)
+                {
+                    effectiveScrubPoint = GetEffectiveScrubPoint(scrubPoint, hue);
+                    WorldMutation.instance.hue.hue = effectiveScrubPoint;
+                }
+                if (bend.on)
+                {
+                    effectiveScrubPoint = GetEffectiveScrubPoint(scrubPoint, bend);
+                    WorldMutation.instance.bend.intensity = effectiveScrubPoint;
+                }
+                if (distortion.on)
+                {
+                    effectiveScrubPoint = GetEffectiveScrubPoint(scrubPoint, distortion);
+                    WorldMutation.instance.distortion.intensity = effectiveScrubPoint;
+                }
+                if (skybox.on)
+                {
+                    effectiveScrubPoint = GetEffectiveScrubPoint(scrubPoint, skybox);
+                    WorldMutation.instance.skybox.intensity = effectiveScrubPoint;
+                }
+                if (dimensionA.on) {
 					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionA);
 					WorldMutation.instance.dimension.dimensionA = effectiveScrubPoint;
 				}

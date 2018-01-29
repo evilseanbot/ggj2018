@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/IntroMovie/introMovie.unity
+    guid: 982e7765f130d724fbf1ad722e64a70f
+  - enabled: 1
+    path: Assets/main.unity
+    guid: d2d4f236f7656fe43964d45ddd213958

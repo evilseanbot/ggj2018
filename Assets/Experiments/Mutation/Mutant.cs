@@ -15,6 +15,10 @@ public class Mutant : MonoBehaviour {
 		if (dimensional) {
 			WorldDimension.OnDimensionalEnter += OnDimensionalEnter;
 			WorldDimension.OnDimensionalExit += OnDimensionalExit;
+            if (dimension != Dimension.A)
+            {
+                TurnOff();
+            }
 		}
 	}
 
@@ -30,16 +34,55 @@ public class Mutant : MonoBehaviour {
 	}
 
 	void OnDimensionalEnter(Dimension dimensionEntered) {
-		//Debug.Log("On dimensional enter");
-		if (dimension == dimensionEntered) {
-			GetComponent<Renderer> ().enabled = true;
-		}
+        //Debug.Log("On dimensional enter");
+        gameObject.active = true;
+
+        if (dimension == dimensionEntered) {
+            if (GetComponent<Renderer>())
+            {
+                GetComponent<Renderer>().enabled = true;
+            }
+            if (GetComponent<AudioSource>())
+            {
+                GetComponent<AudioSource>().enabled = true;
+            }
+            if (GetComponent<Collider>())
+            {
+                GetComponent<Collider>().enabled = true;
+            }
+            if (GetComponent<Light>())
+            {
+                GetComponent<Light>().enabled = true;
+            }
+        }
 	}
 
 	void OnDimensionalExit(Dimension dimensionExited) {
 		//Debug.Log("On dimensional exit");
 		if (dimension == dimensionExited) {
-			GetComponent<Renderer> ().enabled = false;
-		}
+            TurnOff();
+        }
 	}
+
+    void TurnOff()
+    {
+        if (GetComponent<Renderer>()) {
+            GetComponent<Renderer>().enabled = false;
+        }
+        if (GetComponent<AudioSource>())
+        {
+            GetComponent<AudioSource>().enabled = false;
+        }
+        if (GetComponent<Collider>())
+        {
+            GetComponent<Collider>().enabled = false;
+        }
+        if (GetComponent<Light>())
+        {
+            GetComponent<Light>().enabled = false;
+        }
+
+        gameObject.active = false;
+
+    }
 }
