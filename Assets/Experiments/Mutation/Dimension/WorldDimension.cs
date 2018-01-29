@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WorldDimension : MonoBehaviour {
 
-	public float dimensionA;
-	public float dimensionB;
-	public float dimensionC;
-	public bool dimensionAActive = false;
-	public bool dimensionBActive = false;
-	public bool dimensionCActive = false;
+	public class DimensionData {
+		public float value = 0;
+		public bool active = false;
+	}
+
+	public Dictionary<Mutant.Dimension, DimensionData> dimensionData;
+
 	private float dimensionalThreshold = 0.75f;
 
 	public delegate void DimensionalEnterAction (Mutant.Dimension dimension);
@@ -17,37 +19,30 @@ public class WorldDimension : MonoBehaviour {
 	public delegate void DimensionalExitAction (Mutant.Dimension dimension);
 	public static event DimensionalExitAction OnDimensionalExit;
 
+	public void Start() {
+		dimensionData = new Dictionary<Mutant.Dimension, DimensionData> ();
+		foreach (Mutant.Dimension dimension in Enum.GetValues(typeof(Mutant.Dimension))) {
+			if (dimension != Mutant.Dimension.none) {
+				dimensionData.Add (dimension, new DimensionData ());
+			}
+		}
+
+	}
+
 	public void OnScrubbed() {
-		if (dimensionA > dimensionalThreshold && !dimensionAActive) {
-			dimensionAActive = true;
-			OnDimensionalEnter (Mutant.Dimension.A);
+		foreach (Mutant.Dimension dimension in Enum.GetValues(typeof(Mutant.Dimension))) {
+			if (dimension != Mutant.Dimension.none) {
+				if (dimensionData [dimension].value > dimensionalThreshold && !dimensionData [dimension].active) {
+					dimensionData[dimension].active = true;
+					OnDimensionalEnter (dimension);
+				}
+
+				if (dimensionData[dimension].value <= dimensionalThreshold && dimensionData[dimension].active) {
+					dimensionData[dimension].active = false;
+					OnDimensionalExit (dimension);
+				}
+
+			}
 		}
-
-		if (dimensionA <= dimensionalThreshold && dimensionAActive) {
-			dimensionAActive = false;
-			OnDimensionalExit (Mutant.Dimension.A);
-		}
-
-		if (dimensionB > dimensionalThreshold && !dimensionBActive) {
-			dimensionBActive = true;
-			OnDimensionalEnter (Mutant.Dimension.B);
-		}
-
-		if (dimensionB <= dimensionalThreshold && dimensionBActive) {
-			dimensionBActive = false;
-			OnDimensionalExit (Mutant.Dimension.B);
-		}
-
-		if (dimensionC > dimensionalThreshold && !dimensionCActive) {
-			dimensionCActive = true;
-			OnDimensionalEnter (Mutant.Dimension.C);
-		}
-
-		if (dimensionC <= dimensionalThreshold && dimensionCActive) {
-			dimensionCActive = false;
-			OnDimensionalExit (Mutant.Dimension.C);
-		}
-
-
 	}
 }

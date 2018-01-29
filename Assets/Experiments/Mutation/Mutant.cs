@@ -7,7 +7,7 @@ public class Mutant : MonoBehaviour {
 	public Dimension dimension = Dimension.none;
 	public bool prop = false;
 
-	public enum Dimension {A, B, C, none};
+	public enum Dimension {A, B, C, D, E, F, G, H, I, J, none};
 
 	// Use this for initialization
 	void Start () {
@@ -26,12 +26,12 @@ public class Mutant : MonoBehaviour {
 		//Debug.Log ("A scrub has happened");
 	}
 
-	void Update() {
+	/*void Update() {
 		//Heartbeat effect
 		if (prop) {
 			transform.localScale = Vector3.one * WorldMutation.instance.heartbeat.scaleMod;
 		}
-	}
+	}*/
 
 	void OnDimensionalEnter(Dimension dimensionEntered) {
         //Debug.Log("On dimensional enter");

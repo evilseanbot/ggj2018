@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Scrubber : MonoBehaviour {
 
@@ -9,6 +10,11 @@ public class Scrubber : MonoBehaviour {
 	{
 		public bool on;
 		public bool inverted;
+
+		public Effect(bool newOn, bool newInverted) {
+			on = newOn;
+			newInverted = newInverted;
+		}
 	}
 
 	public GameObject reciever;
@@ -25,14 +31,23 @@ public class Scrubber : MonoBehaviour {
     public Effect distortion;
     public Effect skybox;
 
-	public Effect dimensionA;
-	public Effect dimensionB;
-	public Effect dimensionC;
-
+	public List<Effect> dimensionEffectsList;
+	Dictionary<Mutant.Dimension, Effect> dimensionEffects;
 
 	// Use this for initialization
 	void Start () {
-		
+		dimensionEffects = new Dictionary<Mutant.Dimension, Effect> ();
+		int i = 0;
+		foreach (Mutant.Dimension dimension in Enum.GetValues(typeof(Mutant.Dimension))) {
+			if (dimension != Mutant.Dimension.none) {
+				if (dimensionEffectsList.Count > i) {
+					dimensionEffects.Add (dimension, new Effect (dimensionEffectsList [i].on, dimensionEffectsList [i].inverted));
+				} else {
+					dimensionEffects.Add (dimension, new Effect (false, false));
+				}
+			}
+			i++;
+		}		
 	}
 	
 	// Update is called once per frame
@@ -78,27 +93,20 @@ public class Scrubber : MonoBehaviour {
                     effectiveScrubPoint = GetEffectiveScrubPoint(scrubPoint, skybox);
                     WorldMutation.instance.skybox.intensity = effectiveScrubPoint;
                 }
-                if (dimensionA.on) {
-					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionA);
-					WorldMutation.instance.dimension.dimensionA = effectiveScrubPoint;
-				}
 
-				if (dimensionB.on) {
-					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionB);
-					WorldMutation.instance.dimension.dimensionB = effectiveScrubPoint;
-				}
-
-				if (dimensionC.on) {
-					effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionC);
-					WorldMutation.instance.dimension.dimensionC = effectiveScrubPoint;
-				}
-
+				foreach (Mutant.Dimension dimension in Enum.GetValues(typeof(Mutant.Dimension))) {
+					if (dimension != Mutant.Dimension.none) {
+						if (dimensionEffects[dimension].on) {
+							effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionEffects[dimension]);
+							WorldMutation.instance.dimension.dimensionData[dimension].value = effectiveScrubPoint;
+						}
+					}
+				}		
 					
 				reciever.transform.position = Player.instance.transform.position + (Vector3.up * 0.8f) + (Player.instance.camera.transform.forward * 0.75f);
 
 				oldScrubPoint = scrubPoint;
 				WorldMutation.instance.CallOnScrubbed ();
-
 			}
 		}  
 
