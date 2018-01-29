@@ -160,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1733478221044924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.61, y: 0, z: 0}
+  m_LocalPosition: {x: 1.105, y: 0.574, z: 3.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4315529719888920}
@@ -671,7 +671,7 @@ MonoBehaviour:
     on: 0
     inverted: 0
   hue:
-    on: 0
+    on: 1
     inverted: 0
   bend:
     on: 0
@@ -680,8 +680,8 @@ MonoBehaviour:
     on: 0
     inverted: 0
   skybox:
-    on: 0
-    inverted: 0
+    on: 1
+    inverted: 1
   dimensionEffectsList: []
 --- !u!114 &114949779544860618
 MonoBehaviour:

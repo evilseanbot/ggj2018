@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 143885862382892300}
   - component: {fileID: 114292879630378836}
   - component: {fileID: 114735384867999362}
+  - component: {fileID: 114391583802037032}
   m_Layer: 0
   m_Name: FP_Controller
   m_TagString: Untagged
@@ -58,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1891652679077214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.705223, y: 1.0373611, z: -0.6385015}
+  m_LocalPosition: {x: -4.169, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4362802824340636}
@@ -203,6 +204,18 @@ MonoBehaviour:
   airControl: 0
   antiBumpFactor: 0.75
   antiBunnyHopFactor: 1
+--- !u!114 &114391583802037032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1891652679077214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41460b0a06221a34f85ebf656704c3dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 1917044956817188}
 --- !u!114 &114735384867999362
 MonoBehaviour:
   m_ObjectHideFlags: 1

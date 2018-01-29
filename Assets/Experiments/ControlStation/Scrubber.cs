@@ -13,7 +13,7 @@ public class Scrubber : MonoBehaviour {
 
 		public Effect(bool newOn, bool newInverted) {
 			on = newOn;
-			newInverted = newInverted;
+			inverted = newInverted;
 		}
 	}
 
@@ -100,9 +100,10 @@ public class Scrubber : MonoBehaviour {
 						if (dimensionEffects[dimension].on) {
 							effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionEffects[dimension]);
 							WorldMutation.instance.dimension.dimensionData[dimension].value = effectiveScrubPoint;
+                            Debug.Log(dimension.ToString() + "Is at" + effectiveScrubPoint.ToString());                    
 						}
 					}
-				}		
+				}
 					
 				reciever.transform.position = Player.instance.transform.position + (Vector3.up * 0.8f) + (Player.instance.camera.transform.forward * 0.75f);
 

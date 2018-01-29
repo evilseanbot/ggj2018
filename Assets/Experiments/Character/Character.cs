@@ -9,6 +9,7 @@ public class Character : MonoBehaviour {
 
 	private int currentLine = 0;
 	bool playerInZone;
+    public bool finalPerson = false;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,10 @@ public class Character : MonoBehaviour {
 	void AdvanceLine() {
 		currentLine++;
 		if (currentLine >= lines.Count) {
+            if (finalPerson)
+            {
+                Application.Quit();
+            }
 			currentLine = 0;
 		}
 		text.text = lines [currentLine];
