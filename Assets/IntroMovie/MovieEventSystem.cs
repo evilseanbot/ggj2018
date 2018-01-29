@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovieEventSystem : MonoBehaviour {
 
@@ -21,5 +22,6 @@ public class MovieEventSystem : MonoBehaviour {
 
 	void StartGame() {
 		Debug.Log ("Game would be started here");
+		SceneManager.LoadScene ("dummy scene");
 	}
 }
