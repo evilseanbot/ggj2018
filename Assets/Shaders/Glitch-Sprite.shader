@@ -62,6 +62,10 @@ Shader "GGJ/Glitch-Sprite" {
 		float _BendSpeed;
 		float4 _BendPower;
 
+		uniform float _ScaleOffset;
+		uniform float _HueOffset;
+		uniform float _BendOffset;
+
 		struct Input
 		{
 			float2 uv_MainTex;
@@ -72,7 +76,7 @@ Shader "GGJ/Glitch-Sprite" {
 			//v.vertex.xyz += rand(v.vertex + _Time.x * .01f) * .1f;
 			float4 worldPos = mul(unity_ObjectToWorld, v.vertex);
 			worldPos += rand(v.vertex.xyz + _Time.x) * _VertexAmplitude;//sin(v.vertex.y + _Time.x * 100) * .05f * _VertexAmplitude;
-			worldPos = round(worldPos * round(_Scale)) / round(_Scale);
+			worldPos = round(worldPos * round(_Scale + _ScaleOffset)) / round(_Scale + _ScaleOffset);
 			v.vertex = mul(unity_WorldToObject, worldPos);
 			if (_Billboard != 0) {
 				// get the camera basis vectors
@@ -91,7 +95,7 @@ Shader "GGJ/Glitch-Sprite" {
 				v.vertex = mul(v.vertex + float4(0, offset, 0, 0), rotationMatrix) + float4(0, -offset, 0, 0);
 				  v.normal = mul(v.normal, rotationMatrix);
 			}
-			v.vertex = lerp(v.vertex, mul(v.vertex, rotationMatrix(_BendAxis,_Time.x * _BendSpeed * 360.f)), saturate(abs(v.texcoord.x - .5f)) * _BendPower);
+			v.vertex = lerp(v.vertex, mul(v.vertex, rotationMatrix(_BendAxis,_Time.x * (_BendSpeed + _BendOffset) * 360.f)), saturate(abs(v.texcoord.x - .5f)) * _BendPower);
 		}
 
 		void surf(Input IN, inout SurfaceOutput o) {
@@ -106,7 +110,7 @@ Shader "GGJ/Glitch-Sprite" {
 			half4 c;
 			c.rgb = s.Albedo;
 			//c.rgb = s.Albedo * _LightColor0.rgb * (NdotL * atten);
-			c.rgb = hsv2rgb(float3(c.r * .5f + _Hue + atten * .5f, c.r * lerp(atten, 1.f, .85f) * _Saturation, c.r * saturate(.5f + atten)* _Value));
+			c.rgb = hsv2rgb(float3(c.r * .5f + _Hue + _HueOffset + atten * .5f, c.r * lerp(atten, 1.f, .85f) * _Saturation, c.r * saturate(.5f + atten)* _Value));
 			c.a = s.Alpha;
 			return c;
 		}

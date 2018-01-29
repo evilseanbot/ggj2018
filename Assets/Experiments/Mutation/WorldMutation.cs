@@ -10,8 +10,14 @@ public class WorldMutation : MonoBehaviour {
 	public static WorldMutation instance;
 	public WorldHeartbeat heartbeat;
 	public WorldShiftingTexture shiftingTexture;
+
 	public WorldDimension dimension;
-	public Material shiftingMaterial;
+    public WorldBend bend;
+    public WorldHue hue;
+    public WorldDistortion distortion;
+    public WorldSkybox skybox;
+
+    public Material shiftingMaterial;
 
 	// Use this for initialization
 	void Start () {
@@ -19,9 +25,14 @@ public class WorldMutation : MonoBehaviour {
 		heartbeat = gameObject.AddComponent<WorldHeartbeat> ();
 		shiftingTexture = gameObject.AddComponent<WorldShiftingTexture> ();
 		dimension = gameObject.AddComponent<WorldDimension> ();
+        hue = gameObject.AddComponent<WorldHue>();
+        bend = gameObject.AddComponent<WorldBend>();
+        distortion = gameObject.AddComponent<WorldDistortion>();
+        skybox = gameObject.AddComponent<WorldSkybox>();
 
-		shiftingTexture.material = shiftingMaterial;
-		OnScrubbed += OnScrubbedProcedure;
+        shiftingTexture.material = shiftingMaterial;
+
+        OnScrubbed += OnScrubbedProcedure;
 	}
 
 	public void CallOnScrubbed() {
@@ -32,5 +43,10 @@ public class WorldMutation : MonoBehaviour {
 		heartbeat.OnScrubbed ();
 		shiftingTexture.OnScrubbed ();
 		dimension.OnScrubbed ();
-	}
+
+        hue.OnScrubbed();
+        bend.OnScrubbed();
+        distortion.OnScrubbed();
+        skybox.OnScrubbed();
+    }
 }
