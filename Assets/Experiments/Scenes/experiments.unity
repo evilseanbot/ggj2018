@@ -1315,6 +1315,10 @@ MonoBehaviour:
   heartbeat: {fileID: 0}
   shiftingTexture: {fileID: 0}
   dimension: {fileID: 0}
+  bend: {fileID: 0}
+  hue: {fileID: 0}
+  distortion: {fileID: 0}
+  skybox: {fileID: 0}
   shiftingMaterial: {fileID: 2100000, guid: e0f504ba22bedfb48b740b0ac051084f, type: 2}
 --- !u!4 &1829343942
 Transform:
@@ -1448,21 +1452,6 @@ Prefab:
     - target: {fileID: 4087781463107644, guid: 6d32c5fa648d50140b1dea659806a829, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114430632051688922, guid: 6d32c5fa648d50140b1dea659806a829,
-        type: 2}
-      propertyPath: heartbeat.on
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114430632051688922, guid: 6d32c5fa648d50140b1dea659806a829,
-        type: 2}
-      propertyPath: shiftingTexture.on
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114430632051688922, guid: 6d32c5fa648d50140b1dea659806a829,
-        type: 2}
-      propertyPath: dimensionA.on
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114430632051688922, guid: 6d32c5fa648d50140b1dea659806a829,
         type: 2}

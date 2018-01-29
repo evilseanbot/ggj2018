@@ -18,6 +18,7 @@ public class Scrubber : MonoBehaviour {
 	}
 
 	public GameObject reciever;
+	public AudioSource audio;
 	public UnityEngine.UI.Text instructionText;
 	private bool on;
 	private bool playerInZone;
@@ -105,8 +106,13 @@ public class Scrubber : MonoBehaviour {
 					
 				reciever.transform.position = Player.instance.transform.position + (Vector3.up * 0.8f) + (Player.instance.camera.transform.forward * 0.75f);
 
-				oldScrubPoint = scrubPoint;
 				WorldMutation.instance.CallOnScrubbed ();
+
+				audio.time += (scrubPoint - oldScrubPoint) * 10;
+				Debug.Log (audio.pitch);
+
+				oldScrubPoint = scrubPoint;
+
 			}
 		}  
 
