@@ -22,6 +22,6 @@ public class MovieEventSystem : MonoBehaviour {
 
 	void StartGame() {
 		Debug.Log ("Game would be started here");
-		SceneManager.LoadScene ("dummy scene");
+		SceneManager.LoadScene ("main");
 	}
 }
