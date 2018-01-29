@@ -100,7 +100,7 @@ public class Scrubber : MonoBehaviour {
 						if (dimensionEffects[dimension].on) {
 							effectiveScrubPoint = GetEffectiveScrubPoint (scrubPoint, dimensionEffects[dimension]);
 							WorldMutation.instance.dimension.dimensionData[dimension].value = effectiveScrubPoint;
-                            Debug.Log(dimension.ToString() + "Is at" + effectiveScrubPoint.ToString());                    
+                            //Debug.Log(dimension.ToString() + "Is at" + effectiveScrubPoint.ToString());                    
 						}
 					}
 				}
