@@ -13,7 +13,7 @@ Shader "GGJ/SS-Texture"
 	SubShader
 	{
 		Tags{ "Queue" = "Geometry" "RenderType" = "Opaque" }
-
+		cull off
 	Pass
 	{
 		CGPROGRAM
