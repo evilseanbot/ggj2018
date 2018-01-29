@@ -15,6 +15,7 @@ public class AnimatedPPP : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		StartCoroutine ("Animation");
+		Invoke ("MakePressTextAppear", 7);
 	}
 
 	IEnumerator Animation() {
@@ -30,7 +31,6 @@ public class AnimatedPPP : MonoBehaviour {
 
 			MakeTitleTextBlink (i);
 			MakeCameraFadeIn (i);
-			MakePressTextAppear (i);
 
 			audio.volume = (i / 300);
 
@@ -56,10 +56,10 @@ public class AnimatedPPP : MonoBehaviour {
 		}
 	}
 
-	void MakePressTextAppear(float i) {
-		if (i == 299) {
+	void MakePressTextAppear() {
+		//if (i == 299) {
 			pressText.enabled = true;
-		}
+		//}
 	}
 
 	public void CallOutAnimation() {
