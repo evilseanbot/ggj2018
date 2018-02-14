@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: fc1253a82fad25e4bb0708dae43b8ebe
-timeCreated: 1517170391
+guid: a4b6ecc9b48029843a6a0e705662835e
+timeCreated: 1518550505
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -235,6 +235,51 @@ ModelImporter:
     4300084: Screen4
     4300086: Screen5
     4300088: CRTBase3
+    6400000: BoardPlane
+    6400002: CRTBase1
+    6400004: CRTBase2
+    6400006: CRTBase3
+    6400008: Light1
+    6400010: Light2
+    6400012: Light3
+    6400014: LightRim1
+    6400016: LightRim2
+    6400018: LightRim3
+    6400020: MicB_Holder
+    6400022: MicB_Screw
+    6400024: MicB_Screw1
+    6400026: MicB_Sleeve1
+    6400028: MicB_Sleeve2
+    6400030: MixBoard
+    6400032: MixBoard_Base
+    6400034: Panel1
+    6400036: Panel2
+    6400038: Panel3
+    6400040: Panel4
+    6400042: Plug1
+    6400044: PlugL2
+    6400046: PlugR1
+    6400048: PlugR2
+    6400050: PlugR3
+    6400052: polySurface1
+    6400054: polySurface2
+    6400056: Screen1
+    6400058: Screen2
+    6400060: Screen3
+    6400062: Screen4
+    6400064: Screen5
+    6400066: StackofCrap
+    6400068: StackofCrap1
+    6400070: StackofCrap2
+    6400072: Stand1
+    6400074: Stand2
+    6400076: Stand3
+    6400078: Stand4
+    6400080: Table
+    6400082: Table2
+    6400084: Thing1
+    6400086: Wall2
+    6400088: Wall_Base
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -268,7 +313,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.075
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -285,7 +330,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
